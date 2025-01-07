@@ -6,15 +6,17 @@
 /*   By: sakitaha <sakitaha@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/29 01:21:35 by sakitaha          #+#    #+#             */
-/*   Updated: 2024/12/29 02:07:48 by sakitaha         ###   ########.fr       */
+/*   Updated: 2025/01/07 14:53:25 by sakitaha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FORM_HPP
 #define FORM_HPP
 
-#include "Bureaucrat.hpp"
+#include <exception>
 #include <string>
+
+class Bureaucrat;
 
 class Form {
 private:

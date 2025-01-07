@@ -6,11 +6,12 @@
 /*   By: sakitaha <sakitaha@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/29 01:47:25 by sakitaha          #+#    #+#             */
-/*   Updated: 2024/12/31 13:11:50 by sakitaha         ###   ########.fr       */
+/*   Updated: 2025/01/07 14:53:36 by sakitaha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
+#include "Bureaucrat.hpp"
 
 int Form::validateGrade(int grade) {
   if (grade < kHighestGrade) {
