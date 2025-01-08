@@ -6,7 +6,7 @@
 /*   By: sakitaha <sakitaha@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/05 01:31:32 by sakitaha          #+#    #+#             */
-/*   Updated: 2025/01/07 14:59:22 by sakitaha         ###   ########.fr       */
+/*   Updated: 2025/01/07 15:25:43 by sakitaha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,6 @@ public:
   int getExecGrade() const;
 };
 
-std::ostream &operator<<(std::ostream &os, const Form &form);
+std::ostream &operator<<(std::ostream &os, const AForm &form);
 
 #endif // A_FORM_HPP
