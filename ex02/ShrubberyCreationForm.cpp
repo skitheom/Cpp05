@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ShrubberyCreationForm.cpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sakitaha <sakitaha@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: north <north@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 15:32:21 by sakitaha          #+#    #+#             */
-/*   Updated: 2025/01/07 15:50:53 by sakitaha         ###   ########.fr       */
+/*   Updated: 2025/01/10 00:45:17 by north            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,27 +20,24 @@ void ShrubberyCreationForm::performAction() const {
   const std::string fileName = this->target_ + "_shrubbery";
   std::ofstream file(fileName.c_str());
   if (!file.is_open()) {
-    throw std::runtime_error("Error: Failed to create shrubbery file");
-    return;
+    throw std::runtime_error("it failed to create a file " + fileName);
   }
-  file << "         |" << std::endl;
-  file << "        -+-" << std::endl;
-  file << "         A" << std::endl;
-  file << "        /=\\" << std::endl;
-  file << "      i/ O \\i" << std::endl;
-  file << "      /=====\\" << std::endl;
-  file << "      /  i  \\" << std::endl;
-  file << "    i/ O * O \\i" << std::endl;
-  file << "    /=========\\" << std::endl;
-  file << "    /  *   *  \\" << std::endl;
-  file << "  i/ O   i   O \\i" << std::endl;
-  file << "  /=============\\" << std::endl;
-  file << "  /  O   i   O  \\" << std::endl;
-  file << "i/ *   O   O   * \\i" << std::endl;
-  file << "/=================\\" << std::endl;
-  file << "       |___|" << std::endl;
-  file << std::endl;
-  file.close();
+  file << "         |\n"
+       << "        -+-\n"
+       << "         A\n"
+       << "        /=\\\n"
+       << "      i/ O \\i\n"
+       << "      /=====\\\n"
+       << "      /  i  \\\n"
+       << "    i/ O * O \\i\n"
+       << "    /=========\\\n"
+       << "    /  *   *  \\\n"
+       << "  i/ O   i   O \\i\n"
+       << "  /=============\\\n"
+       << "  /  O   i   O  \\\n"
+       << "i/ *   O   O   * \\i\n"
+       << "/=================\\\n"
+       << "       |___|\n";
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm()
@@ -61,3 +58,7 @@ ShrubberyCreationForm::operator=(const ShrubberyCreationForm &other) {
 }
 
 ShrubberyCreationForm::~ShrubberyCreationForm() {}
+
+const std::string ShrubberyCreationForm::getTarget() const {
+  return this->target_;
+}

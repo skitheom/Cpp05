@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sakitaha <sakitaha@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: north <north@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/05 01:51:25 by sakitaha          #+#    #+#             */
-/*   Updated: 2025/01/07 15:58:22 by sakitaha         ###   ########.fr       */
+/*   Updated: 2025/01/10 00:44:00 by north            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ public:
   ShrubberyCreationForm(const ShrubberyCreationForm &other);
   ShrubberyCreationForm &operator=(const ShrubberyCreationForm &other);
   virtual ~ShrubberyCreationForm();
+
+  virtual const std::string getTarget() const;
 };
 
 #endif // SHRUBBERY_CREATION_FORM_HPP

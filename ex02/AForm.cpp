@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AForm.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sakitaha <sakitaha@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: north <north@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/05 01:40:43 by sakitaha          #+#    #+#             */
-/*   Updated: 2025/01/07 14:48:12 by sakitaha         ###   ########.fr       */
+/*   Updated: 2025/01/10 00:46:55 by north            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,7 @@ std::ostream &operator<<(std::ostream &os, const AForm &form) {
   os << "Form: " << form.getName()
      << " | Signed: " << (form.isSigned() ? "Yes" : "No")
      << " | Sign Grade: " << form.getSignGrade()
-     << " | Exec Grade: " << form.getExecGrade();
+     << " | Exec Grade: " << form.getExecGrade()
+     << " | Target: " << form.getTarget();
   return os;
 }

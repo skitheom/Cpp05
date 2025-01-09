@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sakitaha <sakitaha@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: north <north@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/05 01:31:32 by sakitaha          #+#    #+#             */
-/*   Updated: 2025/01/07 15:25:43 by sakitaha         ###   ########.fr       */
+/*   Updated: 2025/01/10 00:43:45 by north            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ public:
   bool isSigned() const;
   int getSignGrade() const;
   int getExecGrade() const;
+  virtual const std::string getTarget() const = 0;
 };
 
 std::ostream &operator<<(std::ostream &os, const AForm &form);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PresidentialPardonForm.hpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sakitaha <sakitaha@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: north <north@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/05 02:06:29 by sakitaha          #+#    #+#             */
-/*   Updated: 2025/01/05 02:27:51 by sakitaha         ###   ########.fr       */
+/*   Updated: 2025/01/10 00:43:50 by north            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,12 @@
 
 class PresidentialPardonForm : public AForm {
 private:
+  static const std::string kFormName;
   static const int kSignGrade_ = 25;
   static const int kExecGrade_ = 5;
   const std::string target_;
+
+  virtual void performAction() const;
 
 public:
   PresidentialPardonForm();
@@ -28,15 +31,8 @@ public:
   PresidentialPardonForm(const PresidentialPardonForm &other);
   PresidentialPardonForm &operator=(const PresidentialPardonForm &other);
   virtual ~PresidentialPardonForm();
+
+  virtual const std::string getTarget() const;
 };
 
 #endif // PRESIDENTIAL_PARDON_FORM_HPP
-
-/*
-PresidentialPardonForm: Required grades: sign 25, exec 5
-
-Informs that <target> has been pardoned by Zaphod Beeblebrox.
-
-All of them take only one parameter in their constructor: the target of the
-form. For example, "home" if you want to plant shrubbery at home.
- */

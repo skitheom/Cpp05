@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sakitaha <sakitaha@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: north <north@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/05 02:01:27 by sakitaha          #+#    #+#             */
-/*   Updated: 2025/01/05 02:26:11 by sakitaha         ###   ########.fr       */
+/*   Updated: 2025/01/10 00:43:55 by north            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,26 +18,21 @@
 
 class RobotomyRequestForm : public AForm {
 private:
+  static const std::string kFormName;
   static const int kSignGrade_ = 72;
   static const int kExecGrade_ = 45;
   const std::string target_;
 
+  virtual void performAction() const;
+
 public:
   RobotomyRequestForm();
   RobotomyRequestForm(const std::string &target);
-  RobotomyRequestForm(const AForm &other);
-  RobotomyRequestForm &operator=(const AForm &other);
+  RobotomyRequestForm(const RobotomyRequestForm &other);
+  RobotomyRequestForm &operator=(const RobotomyRequestForm &other);
   virtual ~RobotomyRequestForm();
+
+  virtual const std::string getTarget() const;
 };
 
 #endif // ROBOTOMY_REQUEST_FORM_HPP
-
-/*
-RobotomyRequestForm: Required grades: sign 72, exec 45
-
-Makes some drilling noises. Then, informs that <target> has been robotomized
-successfully 50% of the time. Otherwise, informs that the robotomy failed
-
-All of them take only one parameter in their constructor: the target of the
-form. For example, "home" if you want to plant shrubbery at home.
-*/
