@@ -6,7 +6,7 @@
 /*   By: north <north@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 03:16:30 by north             #+#    #+#             */
-/*   Updated: 2025/01/10 04:37:13 by north            ###   ########.fr       */
+/*   Updated: 2025/01/10 04:42:59 by north            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,13 +48,13 @@ AForm *Intern::makeForm(const std::string &formName,
       } catch (const std::bad_alloc &e) {
         std::cerr << "Error: Intern could not create form: " << e.what()
                   << std::endl;
-        return nullptr;
+        return NULL;
       }
     }
   }
   std::cerr << "Error: Intern could not find " << formName << " form."
             << std::endl;
-  return nullptr;
+  return NULL;
 }
 
 AForm *Intern::makeShrubberyCreationForm(const std::string &target) const {
