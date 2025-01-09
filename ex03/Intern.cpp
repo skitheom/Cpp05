@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Intern.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: north <north@student.42.fr>                +#+  +:+       +#+        */
+/*   By: sakitaha <sakitaha@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 03:16:30 by north             #+#    #+#             */
-/*   Updated: 2025/01/10 04:42:59 by north            ###   ########.fr       */
+/*   Updated: 2025/01/10 04:48:11 by sakitaha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,5 +68,3 @@ AForm *Intern::makeRobotomyRequestForm(const std::string &target) const {
 AForm *Intern::makePresidentialPardonForm(const std::string &target) const {
   return new PresidentialPardonForm(target);
 }
-
-// Intern creates <form>
