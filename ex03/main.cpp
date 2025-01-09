@@ -6,7 +6,7 @@
 /*   By: sakitaha <sakitaha@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 10:32:30 by sakitaha          #+#    #+#             */
-/*   Updated: 2025/01/10 04:49:58 by sakitaha         ###   ########.fr       */
+/*   Updated: 2025/01/10 04:52:19 by sakitaha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,13 @@
 #include "PresidentialPardonForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "ShrubberyCreationForm.hpp"
+#include <cstddef>
 #include <iostream>
 
 static void test1() {
   std::cout << "\n=== Test case 1: ShrubberyCreationForm ===" << std::endl;
 
-  AForm *form = nullptr;
+  AForm *form = NULL;
   try {
     Bureaucrat bureaucrat("President Cat", 1);
     Intern novice;
@@ -49,7 +50,7 @@ static void test1() {
 static void test2() {
   std::cout << "\n=== Test case 2: RobotomyRequestForm ===" << std::endl;
 
-  AForm *form = nullptr;
+  AForm *form = NULL;
   try {
     Bureaucrat bureaucrat("President Cat", 1);
     Intern novice;
@@ -77,7 +78,7 @@ static void test2() {
 static void test3() {
   std::cout << "\n=== Test case 3: PresidentialPardonForm ===" << std::endl;
 
-  AForm *form = nullptr;
+  AForm *form = NULL;
   try {
     Bureaucrat bureaucrat("President Cat", 1);
     Intern novice;
@@ -105,7 +106,7 @@ static void test3() {
 static void test4() {
   std::cout << "\n=== Test case 4: ??? Form ===" << std::endl;
 
-  AForm *form = nullptr;
+  AForm *form = NULL;
   try {
     Bureaucrat bureaucrat("President Cat", 1);
     Intern novice;
