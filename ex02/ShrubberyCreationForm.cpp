@@ -11,52 +11,43 @@
 /* ************************************************************************** */
 
 #include "ShrubberyCreationForm.hpp"
+#include <fstream>
 #include <iostream>
 
 const std::string ShrubberyCreationForm::kFormName = "ShrubberyCreationForm";
-/*
-Create a file <target>_shrubbery in the working directory,
-and writes ASCII trees inside it.
 
-// NOTE: 直接 std::string を渡すとコンパイルできない環境がある
-        const std::string fileName = target_ + "_shrubbery";
-        std::ofstream file(fileName.c_str());
-        if (!file.is_open())
-                throw std::runtime_error("cannot open file");
-        std::string shrubbery =
-                        "     ^^^   \n"
-                        "    ^^^^   \n"
-                        "   ^^^^^   \n"
-                        "  ^^^^^^^  \n"
-                        " ^^^^^^^^^ \n"
-                        "^^^^^^^^^^^\n";
-        file << shrubbery;
-        file.close();
-
- */
 void ShrubberyCreationForm::performAction() const {
-
-  const std::string fileName = std::string(this->target_ + "_shrubbery");
+  const std::string fileName = this->target_ + "_shrubbery";
   std::ofstream file(fileName.c_str());
-
-  try {
-    if (!file.is_open()) {
-      throw std::runtime_error("Error: Failed to create shrubbery file");
-    }
-    // going to write ASCII trees inside of it here (later to inmpriment)
-  } catch (const std::exception &e) {
-    std::cerr << e.what() << std::endl;
+  if (!file.is_open()) {
+    throw std::runtime_error("Error: Failed to create shrubbery file");
+    return;
   }
+  file << "         |" << std::endl;
+  file << "        -+-" << std::endl;
+  file << "         A" << std::endl;
+  file << "        /=\\" << std::endl;
+  file << "      i/ O \\i" << std::endl;
+  file << "      /=====\\" << std::endl;
+  file << "      /  i  \\" << std::endl;
+  file << "    i/ O * O \\i" << std::endl;
+  file << "    /=========\\" << std::endl;
+  file << "    /  *   *  \\" << std::endl;
+  file << "  i/ O   i   O \\i" << std::endl;
+  file << "  /=============\\" << std::endl;
+  file << "  /  O   i   O  \\" << std::endl;
+  file << "i/ *   O   O   * \\i" << std::endl;
+  file << "/=================\\" << std::endl;
+  file << "       |___|" << std::endl;
+  file << std::endl;
   file.close();
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm()
-    : AForm("ShrubberyCreationForm", kSignGrade_, kExecGrade_),
-      target_("untitled") {}
+    : AForm(kFormName, kSignGrade_, kExecGrade_), target_("untitled") {}
 
 ShrubberyCreationForm::ShrubberyCreationForm(const std::string &target)
-    : AForm("ShrubberyCreationForm", kSignGrade_, kExecGrade_),
-      target_(target) {}
+    : AForm(kFormName, kSignGrade_, kExecGrade_), target_(target) {}
 
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &other)
     : AForm(other), target_(other.target_) {}

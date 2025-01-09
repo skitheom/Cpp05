@@ -34,11 +34,3 @@ public:
 };
 
 #endif // SHRUBBERY_CREATION_FORM_HPP
-
-/*
-
-
-
-All of them take only one parameter in their constructor: the target of the
-form. For example, "home" if you want to plant shrubbery at home.
- */
