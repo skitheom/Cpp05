@@ -6,7 +6,7 @@
 /*   By: north <north@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 03:16:30 by north             #+#    #+#             */
-/*   Updated: 2025/01/10 04:19:52 by north            ###   ########.fr       */
+/*   Updated: 2025/01/10 04:37:13 by north            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include "PresidentialPardonForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "ShrubberyCreationForm.hpp"
+#include <cstddef>
 #include <iostream>
 
 Intern::Intern() {}
