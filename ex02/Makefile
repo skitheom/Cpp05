@@ -6,21 +6,26 @@
 #    By: sakitaha <sakitaha@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/21 16:15:58 by sakitaha          #+#    #+#              #
-#    Updated: 2025/01/10 04:49:42 by sakitaha         ###   ########.fr        #
+#    Updated: 2025/01/14 17:12:16 by sakitaha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CXX      := c++
 CXXFLAGS := -Wall -Wextra -Werror -std=c++98
 RM       := rm -f
-TARGET   := program
-SRCS     := $(wildcard *.cpp)
+NAME     := program
+SRCS     := AForm.cpp \
+			Bureaucrat.cpp \
+			PresidentialPardonForm.cpp \
+			RobotomyRequestForm.cpp \
+			ShrubberyCreationForm.cpp \
+			main.cpp
 OBJS     := $(SRCS:.cpp=.o)
 
-all: $(TARGET)
+all: $(NAME)
 
-$(TARGET): $(OBJS)
-	$(CXX) $(CXXFLAGS) -o $(TARGET) $(OBJS)
+$(NAME): $(OBJS)
+	$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJS)
 
 %.o: %.cpp
 	$(CXX) $(CXXFLAGS) -c $< -o $@
@@ -29,20 +34,20 @@ clean:
 	$(RM) $(OBJS) $(wildcard *_shrubbery)
 
 fclean: clean
-	$(RM) $(TARGET)
+	$(RM) $(NAME)
 
 re: fclean all
 
-test: $(TARGET)
+test: $(NAME)
 	@echo "== Running Tests  =="
-	./$(TARGET)
+	./$(NAME)
 	@echo "== Tests Completed =="
 
 debug: CXXFLAGS += -fsanitize=address -g
-debug: $(TARGET)
-	./$(TARGET)
+debug: $(NAME)
+	./$(NAME)
 
 valgrind: all
-	valgrind --leak-check=full ./$(TARGET)
+	valgrind --leak-check=full ./$(NAME)
 
 .PHONY: all clean fclean re test debug leaks valgrind
