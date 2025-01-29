@@ -11,7 +11,7 @@
 ### Ex02: No, you need form 28B, not 28C...
 - BureaucratがFormを実行する
 
-###　Ex03: At least this beats coffee-making
+### Ex03: At least this beats coffee-making
 - Formを作成するInternクラスの実装
 
 ## References
