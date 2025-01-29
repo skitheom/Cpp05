@@ -16,6 +16,29 @@
 
 const std::string ShrubberyCreationForm::kFormName = "ShrubberyCreationForm";
 
+ShrubberyCreationForm::ShrubberyCreationForm()
+    : AForm(kFormName, kSignGrade_, kExecGrade_), target_("untitled") {}
+
+ShrubberyCreationForm::ShrubberyCreationForm(const std::string &target)
+    : AForm(kFormName, kSignGrade_, kExecGrade_), target_(target) {}
+
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &other)
+    : AForm(other), target_(other.target_) {}
+
+ShrubberyCreationForm::~ShrubberyCreationForm() {}
+
+ShrubberyCreationForm &
+ShrubberyCreationForm::operator=(const ShrubberyCreationForm &other) {
+  if (this != &other) {
+    AForm::operator=(other);
+  }
+  return *this;
+}
+
+const std::string ShrubberyCreationForm::getTarget() const {
+  return this->target_;
+}
+
 void ShrubberyCreationForm::performAction() const {
   const std::string fileName = this->target_ + "_shrubbery";
   std::ofstream file(fileName.c_str());
@@ -38,27 +61,4 @@ void ShrubberyCreationForm::performAction() const {
        << "i/ *   O   O   * \\i\n"
        << "/=================\\\n"
        << "       |___|\n";
-}
-
-ShrubberyCreationForm::ShrubberyCreationForm()
-    : AForm(kFormName, kSignGrade_, kExecGrade_), target_("untitled") {}
-
-ShrubberyCreationForm::ShrubberyCreationForm(const std::string &target)
-    : AForm(kFormName, kSignGrade_, kExecGrade_), target_(target) {}
-
-ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &other)
-    : AForm(other), target_(other.target_) {}
-
-ShrubberyCreationForm &
-ShrubberyCreationForm::operator=(const ShrubberyCreationForm &other) {
-  if (this != &other) {
-    AForm::operator=(other);
-  }
-  return *this;
-}
-
-ShrubberyCreationForm::~ShrubberyCreationForm() {}
-
-const std::string ShrubberyCreationForm::getTarget() const {
-  return this->target_;
 }

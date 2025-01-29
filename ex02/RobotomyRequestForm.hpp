@@ -17,22 +17,23 @@
 #include <string>
 
 class RobotomyRequestForm : public AForm {
+public:
+  RobotomyRequestForm();
+  RobotomyRequestForm(const std::string &target);
+  RobotomyRequestForm(const RobotomyRequestForm &other);
+  ~RobotomyRequestForm();
+
+  RobotomyRequestForm &operator=(const RobotomyRequestForm &other);
+
+  const std::string getTarget() const;
+
 private:
   static const std::string kFormName;
   static const int kSignGrade_ = 72;
   static const int kExecGrade_ = 45;
   const std::string target_;
 
-  virtual void performAction() const;
-
-public:
-  RobotomyRequestForm();
-  RobotomyRequestForm(const std::string &target);
-  RobotomyRequestForm(const RobotomyRequestForm &other);
-  RobotomyRequestForm &operator=(const RobotomyRequestForm &other);
-  virtual ~RobotomyRequestForm();
-
-  virtual const std::string getTarget() const;
+  void performAction() const;
 };
 
 #endif // ROBOTOMY_REQUEST_FORM_HPP

@@ -13,24 +13,6 @@
 #include "Bureaucrat.hpp"
 #include "AForm.hpp"
 
-int Bureaucrat::validateGrade(int grade) {
-  if (grade < kHighestGrade) {
-    throw GradeTooHighException();
-  }
-  if (kLowestGrade < grade) {
-    throw GradeTooLowException();
-  }
-  return grade;
-}
-
-const char *Bureaucrat::GradeTooHighException::what() const throw() {
-  return "Grade is too high!";
-}
-
-const char *Bureaucrat::GradeTooLowException::what() const throw() {
-  return "Grade is too low!";
-}
-
 Bureaucrat::Bureaucrat()
     : name_("John Doe"), grade_(validateGrade(kLowestGrade)) {}
 
@@ -43,6 +25,8 @@ Bureaucrat::Bureaucrat(const std::string &name, int grade)
 Bureaucrat::Bureaucrat(const Bureaucrat &other)
     : name_(other.name_), grade_(validateGrade(other.grade_)) {}
 
+Bureaucrat::~Bureaucrat() {}
+
 Bureaucrat &Bureaucrat::operator=(const Bureaucrat &other) {
   if (this != &other) {
     this->grade_ = validateGrade(other.grade_);
@@ -50,7 +34,17 @@ Bureaucrat &Bureaucrat::operator=(const Bureaucrat &other) {
   return *this;
 }
 
-Bureaucrat::~Bureaucrat() {}
+const char *Bureaucrat::GradeTooHighException::what() const throw() {
+  return "Grade is too high!";
+}
+
+const char *Bureaucrat::GradeTooLowException::what() const throw() {
+  return "Grade is too low!";
+}
+
+const std::string &Bureaucrat::getName() const { return this->name_; }
+
+int Bureaucrat::getGrade() const { return this->grade_; }
 
 void Bureaucrat::promote() { this->grade_ = validateGrade(this->grade_ - 1); }
 
@@ -83,9 +77,15 @@ void Bureaucrat::executeForm(const AForm &form) const {
   }
 }
 
-const std::string &Bureaucrat::getName() const { return this->name_; }
-
-int Bureaucrat::getGrade() const { return this->grade_; }
+int Bureaucrat::validateGrade(int grade) const {
+  if (grade < kHighestGrade) {
+    throw GradeTooHighException();
+  }
+  if (kLowestGrade < grade) {
+    throw GradeTooLowException();
+  }
+  return grade;
+}
 
 std::ostream &operator<<(std::ostream &os, const Bureaucrat &bureaucrat) {
   os << bureaucrat.getName() << ", bureaucrat grade " << bureaucrat.getGrade();
