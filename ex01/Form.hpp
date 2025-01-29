@@ -19,17 +19,15 @@
 class Bureaucrat;
 
 class Form {
-private:
-  static const int kHighestGrade = 1;
-  static const int kLowestGrade = 150;
-  const std::string name_;
-  bool signed_;
-  const int signGrade_;
-  const int execGrade_;
-
-  int validateGrade(int grade);
 
 public:
+  Form();
+  Form(const std::string &name, int gradeToSign, int gradeToExecute);
+  Form(const Form &other);
+  virtual ~Form();
+
+  Form &operator=(const Form &other);
+
   class GradeTooHighException : public std::exception {
   public:
     virtual const char *what() const throw();
@@ -40,18 +38,22 @@ public:
     virtual const char *what() const throw();
   };
 
-  Form();
-  Form(const std::string &name, int gradeToSign, int gradeToExecute);
-  Form(const Form &other);
-  Form &operator=(const Form &other);
-  virtual ~Form();
-
-  void beSigned(const Bureaucrat &bureaucrat);
-
   const std::string &getName() const;
   bool isSigned() const;
   int getSignGrade() const;
   int getExecGrade() const;
+
+  void beSigned(const Bureaucrat &bureaucrat);
+
+private:
+  static const int kHighestGrade = 1;
+  static const int kLowestGrade = 150;
+  const std::string name_;
+  bool signed_;
+  const int signGrade_;
+  const int execGrade_;
+
+  int validateGrade(int grade) const;
 };
 
 std::ostream &operator<<(std::ostream &os, const Form &form);

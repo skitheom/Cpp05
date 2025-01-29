@@ -13,24 +13,6 @@
 #include "Form.hpp"
 #include "Bureaucrat.hpp"
 
-int Form::validateGrade(int grade) {
-  if (grade < kHighestGrade) {
-    throw GradeTooHighException();
-  }
-  if (kLowestGrade < grade) {
-    throw GradeTooLowException();
-  }
-  return grade;
-}
-
-const char *Form::GradeTooHighException::what() const throw() {
-  return "Grade is too high!";
-}
-
-const char *Form::GradeTooLowException::what() const throw() {
-  return "Grade is too low!";
-}
-
 Form::Form()
     : name_("Untitled"), signed_(false),
       signGrade_(validateGrade(kLowestGrade)),
@@ -45,6 +27,8 @@ Form::Form(const Form &other)
       signGrade_(validateGrade(other.signGrade_)),
       execGrade_(validateGrade(other.execGrade_)) {}
 
+Form::~Form() {}
+
 Form &Form::operator=(const Form &other) {
   if (this != &other) {
     this->signed_ = other.signed_;
@@ -52,13 +36,12 @@ Form &Form::operator=(const Form &other) {
   return *this;
 }
 
-Form::~Form() {}
+const char *Form::GradeTooHighException::what() const throw() {
+  return "Grade is too high!";
+}
 
-void Form::beSigned(const Bureaucrat &bureaucrat) {
-  if (bureaucrat.getGrade() > this->signGrade_) {
-    throw GradeTooLowException();
-  }
-  signed_ = true;
+const char *Form::GradeTooLowException::what() const throw() {
+  return "Grade is too low!";
 }
 
 const std::string &Form::getName() const { return this->name_; }
@@ -68,6 +51,23 @@ bool Form::isSigned() const { return this->signed_; }
 int Form::getSignGrade() const { return this->signGrade_; }
 
 int Form::getExecGrade() const { return this->execGrade_; }
+
+void Form::beSigned(const Bureaucrat &bureaucrat) {
+  if (bureaucrat.getGrade() > this->signGrade_) {
+    throw GradeTooLowException();
+  }
+  signed_ = true;
+}
+
+int Form::validateGrade(int grade) const {
+  if (grade < kHighestGrade) {
+    throw GradeTooHighException();
+  }
+  if (kLowestGrade < grade) {
+    throw GradeTooLowException();
+  }
+  return grade;
+}
 
 std::ostream &operator<<(std::ostream &os, const Form &form) {
   os << "Form: " << form.getName()
