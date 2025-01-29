@@ -17,17 +17,6 @@
 
 const std::string RobotomyRequestForm::kFormName = "RobotomyRequestForm";
 
-void RobotomyRequestForm::performAction() const {
-  std::cout << "** Makes some drilling noises **" << std::endl;
-  std::cout << "Drrrrrr..." << std::endl;
-  std::srand(std::time(0));
-  if (std::rand() % 2 == 0) {
-    throw std::runtime_error("the robotomy failed");
-  }
-  std::cout << this->target_ << " has been robotomized successfully"
-            << std::endl;
-}
-
 RobotomyRequestForm::RobotomyRequestForm()
     : AForm(kFormName, kSignGrade_, kExecGrade_), target_("untitled") {}
 
@@ -37,6 +26,8 @@ RobotomyRequestForm::RobotomyRequestForm(const std::string &target)
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &other)
     : AForm(other), target_(other.target_) {}
 
+RobotomyRequestForm::~RobotomyRequestForm() {}
+
 RobotomyRequestForm &
 RobotomyRequestForm::operator=(const RobotomyRequestForm &other) {
   if (this != &other) {
@@ -45,8 +36,17 @@ RobotomyRequestForm::operator=(const RobotomyRequestForm &other) {
   return *this;
 }
 
-RobotomyRequestForm::~RobotomyRequestForm() {}
-
 const std::string RobotomyRequestForm::getTarget() const {
   return this->target_;
+}
+
+void RobotomyRequestForm::performAction() const {
+  std::cout << "** Makes some drilling noises **" << std::endl;
+  std::cout << "Drrrrrr..." << std::endl;
+  std::srand(std::time(0));
+  if (std::rand() % 2 == 0) {
+    throw std::runtime_error("the robotomy failed");
+  }
+  std::cout << this->target_ << " has been robotomized successfully"
+            << std::endl;
 }

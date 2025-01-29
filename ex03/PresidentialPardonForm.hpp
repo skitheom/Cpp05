@@ -17,22 +17,23 @@
 #include <string>
 
 class PresidentialPardonForm : public AForm {
+public:
+  PresidentialPardonForm();
+  PresidentialPardonForm(const std::string &target);
+  PresidentialPardonForm(const PresidentialPardonForm &other);
+  ~PresidentialPardonForm();
+
+  PresidentialPardonForm &operator=(const PresidentialPardonForm &other);
+
+  const std::string getTarget() const;
+
 private:
   static const std::string kFormName;
   static const int kSignGrade_ = 25;
   static const int kExecGrade_ = 5;
   const std::string target_;
 
-  virtual void performAction() const;
-
-public:
-  PresidentialPardonForm();
-  PresidentialPardonForm(const std::string &target);
-  PresidentialPardonForm(const PresidentialPardonForm &other);
-  PresidentialPardonForm &operator=(const PresidentialPardonForm &other);
-  virtual ~PresidentialPardonForm();
-
-  virtual const std::string getTarget() const;
+  void performAction() const;
 };
 
 #endif // PRESIDENTIAL_PARDON_FORM_HPP

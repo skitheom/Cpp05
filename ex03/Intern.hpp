@@ -18,18 +18,20 @@
 class AForm;
 
 class Intern {
-private:
-  AForm *makeShrubberyCreationForm(const std::string &target) const;
-  AForm *makeRobotomyRequestForm(const std::string &target) const;
-  AForm *makePresidentialPardonForm(const std::string &target) const;
 
 public:
   Intern();
   Intern(const Intern &other);
-  Intern &operator=(const Intern &other);
   ~Intern();
 
+  Intern &operator=(const Intern &other);
+
   AForm *makeForm(const std::string &formName, const std::string &target) const;
+
+private:
+  AForm *makeShrubberyCreationForm(const std::string &target) const;
+  AForm *makeRobotomyRequestForm(const std::string &target) const;
+  AForm *makePresidentialPardonForm(const std::string &target) const;
 };
 
 #endif // INTERN_HPP

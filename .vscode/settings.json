@@ -55,6 +55,21 @@
 		"iterator": "cpp",
 		"exception": "cpp",
 		"fstream": "cpp",
-		"iomanip": "cpp"
+		"iomanip": "cpp",
+		"atomic": "cpp",
+		"bit": "cpp",
+		"*.tcc": "cpp",
+		"compare": "cpp",
+		"concepts": "cpp",
+		"functional": "cpp",
+		"memory_resource": "cpp",
+		"numeric": "cpp",
+		"random": "cpp",
+		"system_error": "cpp",
+		"type_traits": "cpp",
+		"utility": "cpp",
+		"numbers": "cpp",
+		"ranges": "cpp",
+		"span": "cpp"
 	}
 }

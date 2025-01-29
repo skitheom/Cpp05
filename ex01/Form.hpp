@@ -24,18 +24,18 @@ public:
   Form();
   Form(const std::string &name, int gradeToSign, int gradeToExecute);
   Form(const Form &other);
-  virtual ~Form();
+  ~Form();
 
   Form &operator=(const Form &other);
 
   class GradeTooHighException : public std::exception {
   public:
-    virtual const char *what() const throw();
+    const char *what() const throw();
   };
 
   class GradeTooLowException : public std::exception {
   public:
-    virtual const char *what() const throw();
+    const char *what() const throw();
   };
 
   const std::string &getName() const;
